@@ -1,8 +1,5 @@
-import os
 
-from django.shortcuts import render,redirect,HttpResponse
-from django.contrib.auth.models import User
-from django.contrib.auth  import authenticate, login, logout
+from django.shortcuts import render,redirect
 from .models import Student
 
 # Create your views here.
@@ -23,7 +20,7 @@ def insertData(request):
 
         if len(request.FILES) !=0:
             image = request.FILES['image']
-        # print(name,email,age,gender)
+        
         query=Student(name=name,email=email,age=age,gender=gender, image=image)
         query.save()
         return redirect("/")
